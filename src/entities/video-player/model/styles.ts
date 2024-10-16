@@ -9,3 +9,16 @@ export const StyledWrap = styled("div")(() => ({
     maxWidth: "100%",
   },
 }));
+
+export const StyledVideoFooter = styled("div")(() => ({}));
+
+export const StyledTimeline = styled("div")(() => ({}));
+
+export const StyledControls = styled("div")(() => ({}));
+
+export const StyledControlButton = styled("div")(() => ({
+  svg: {
+    width: "40px",
+    height: "40px",
+  },
+}));
