@@ -36,9 +36,16 @@ export const StyledVideoFooter = styled("div")(() => ({}));
 
 export const StyledTimeline = styled("div")(() => ({}));
 
+export const StyledControlGroup = styled("div")(() => ({
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
+}));
+
 export const StyledControls = styled("div")(() => ({
   display: "flex",
   alignItems: "center",
+  justifyContent: "space-between",
   gap: "10px",
   padding: "10px",
   position: "relative",
@@ -51,7 +58,7 @@ export const StyledControls = styled("div")(() => ({
     bottom: 0,
     left: 0,
     backgroundImage:
-      "linear-gradient(to bottom, rgb(0, 0, 0, 0), rgb(0, 0, 0, .6))",
+      "linear-gradient(to bottom, rgb(0, 0, 0, 0), rgb(0, 0, 0, .8))",
     zIndex: -1,
   },
 }));

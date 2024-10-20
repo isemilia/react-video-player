@@ -1,6 +1,7 @@
 import { FC, useRef } from "react";
 import { TVideoPlayerProps } from "./model/types.ts";
 import {
+  StyledControlGroup,
   StyledControls,
   StyledTimeline,
   StyledVideoFooter,
@@ -9,6 +10,9 @@ import {
 } from "./model/styles.ts";
 import PlayButton from "./ui/play-button";
 import usePlayVideo from "../../shared/lib/hooks/use-play-video";
+import TheaterButton from "./ui/mini-player-button";
+import MiniPlayerButton from "./ui/mini-player-button/mini-player-button.tsx";
+import FullScreenButton from "./ui/full-screen-button/full-screen-button.tsx";
 
 const VideoPlayer: FC<TVideoPlayerProps> = ({ source }) => {
   const videoRef = useRef<null | HTMLVideoElement>(null);
@@ -21,12 +25,19 @@ const VideoPlayer: FC<TVideoPlayerProps> = ({ source }) => {
         <StyledVideoFooter>
           <StyledTimeline></StyledTimeline>
           <StyledControls>
-            <PlayButton
-              isPaused={isPaused}
-              onClick={() => {
-                toggleVideo();
-              }}
-            />
+            <StyledControlGroup>
+              <PlayButton
+                isPaused={isPaused}
+                onClick={() => {
+                  toggleVideo();
+                }}
+              />
+            </StyledControlGroup>
+            <StyledControlGroup>
+              <MiniPlayerButton />
+              <TheaterButton />
+              <FullScreenButton />
+            </StyledControlGroup>
           </StyledControls>
         </StyledVideoFooter>
       </StyledVideoOverlay>
