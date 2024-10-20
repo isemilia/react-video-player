@@ -53,12 +53,12 @@ export const StyledControls = styled("div")(() => ({
   "&::before": {
     position: "absolute",
     width: "100%",
-    height: "100%",
+    height: "110%",
     content: '""',
     bottom: 0,
     left: 0,
     backgroundImage:
-      "linear-gradient(to bottom, rgb(0, 0, 0, 0), rgb(0, 0, 0, .8))",
+      "linear-gradient(to bottom, rgb(0, 0, 0, 0), rgb(0, 0, 0, .85))",
     zIndex: -1,
   },
 }));
