@@ -27,6 +27,7 @@ export const StyledVideoOverlay = styled("div")(
     "&:hover": {
       opacity: 1,
     },
+    zIndex: 1,
     ...($isPaused ? { opacity: 1 } : {}),
   }),
 );
@@ -51,7 +52,7 @@ export const StyledControls = styled("div")(() => ({
     left: 0,
     backgroundImage:
       "linear-gradient(to bottom, rgb(0, 0, 0, 0), rgb(0, 0, 0, .6))",
-    zIndex: 0,
+    zIndex: -1,
   },
 }));
 
