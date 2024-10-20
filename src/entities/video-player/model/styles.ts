@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
 export const StyledWrap = styled("div")(
-  ({ $isTheater }: { $isTheater?: boolean }) => ({
-    display: "block",
+  ({
+    $isTheater,
+    $isFullScreen,
+  }: {
+    $isTheater?: boolean;
+    $isFullScreen?: boolean;
+  }) => ({
+    display: "grid",
+    placeContent: "center",
     width: "100%",
     maxWidth: "800px",
     position: "relative",
+    background: "#181818",
     video: {
       display: "block",
       maxWidth: "100%",
@@ -13,10 +21,20 @@ export const StyledWrap = styled("div")(
     ...($isTheater
       ? {
           maxWidth: "100%",
-          maxHeight: "90vh",
+          maxHeight: "80vh",
           video: {
             height: "100%",
             maxHeight: "inherit",
+          },
+        }
+      : {}),
+    ...($isFullScreen
+      ? {
+          maxWidth: "100vw",
+          width: "100vw",
+          video: {
+            height: "100vh",
+            maxHeight: "100vh",
           },
         }
       : {}),
