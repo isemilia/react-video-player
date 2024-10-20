@@ -1,15 +1,27 @@
 import styled from "styled-components";
 
-export const StyledWrap = styled("div")(() => ({
-  display: "block",
-  width: "100%",
-  maxWidth: "800px",
-  position: "relative",
-  video: {
+export const StyledWrap = styled("div")(
+  ({ $isTheater }: { $isTheater?: boolean }) => ({
     display: "block",
-    maxWidth: "100%",
-  },
-}));
+    width: "100%",
+    maxWidth: "800px",
+    position: "relative",
+    video: {
+      display: "block",
+      maxWidth: "100%",
+    },
+    ...($isTheater
+      ? {
+          maxWidth: "100%",
+          maxHeight: "90vh",
+          video: {
+            height: "100%",
+            maxHeight: "inherit",
+          },
+        }
+      : {}),
+  }),
+);
 
 export const StyledVideoOverlay = styled("div")(
   ({ $isPaused }: { $isPaused?: boolean }) => ({

@@ -1,4 +1,4 @@
-import { FC, useRef } from "react";
+import { FC, useRef, useState } from "react";
 import { TVideoPlayerProps } from "./model/types.ts";
 import {
   StyledControlGroup,
@@ -19,8 +19,10 @@ const VideoPlayer: FC<TVideoPlayerProps> = ({ source }) => {
 
   const { isPaused, toggleVideo } = usePlayVideo({ ref: videoRef });
 
+  const [isTheater, setTheater] = useState(false);
+
   return (
-    <StyledWrap className={"video-root"}>
+    <StyledWrap className={"video-root"} $isTheater={isTheater}>
       <StyledVideoOverlay>
         <StyledVideoFooter>
           <StyledTimeline></StyledTimeline>
@@ -35,7 +37,12 @@ const VideoPlayer: FC<TVideoPlayerProps> = ({ source }) => {
             </StyledControlGroup>
             <StyledControlGroup>
               <MiniPlayerButton />
-              <TheaterButton />
+              <TheaterButton
+                isActive={isTheater}
+                onClick={() => {
+                  setTheater((state) => !state);
+                }}
+              />
               <FullScreenButton />
             </StyledControlGroup>
           </StyledControls>
