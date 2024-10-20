@@ -22,7 +22,7 @@ export const StyledVideoOverlay = styled("div")(
     flexDirection: "column",
     justifyContent: "flex-end",
     color: "white",
-    // opacity: 0,
+    opacity: 0,
     transition: "opacity .3s",
     "&:hover": {
       opacity: 1,
@@ -40,6 +40,19 @@ export const StyledControls = styled("div")(() => ({
   alignItems: "center",
   gap: "10px",
   padding: "10px",
+  position: "relative",
+  zIndex: 1,
+  "&::before": {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    content: '""',
+    bottom: 0,
+    left: 0,
+    backgroundImage:
+      "linear-gradient(to bottom, rgb(0, 0, 0, 0), rgb(0, 0, 0, .6))",
+    zIndex: 0,
+  },
 }));
 
 export const StyledControlButton = styled("button")(() => ({
