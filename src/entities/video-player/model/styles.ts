@@ -20,11 +20,11 @@ export const StyledWrap = styled("div")(
     },
     ...($isTheater
       ? {
-          maxWidth: "100%",
-          maxHeight: "80vh",
+          width: "100vw",
+          maxWidth: "100vw",
           video: {
             height: "100%",
-            maxHeight: "inherit",
+            maxHeight: "80vh",
           },
         }
       : {}),
@@ -33,7 +33,7 @@ export const StyledWrap = styled("div")(
           maxWidth: "100vw",
           width: "100vw",
           video: {
-            height: "100vh",
+            height: "100%",
             maxHeight: "100vh",
           },
         }
