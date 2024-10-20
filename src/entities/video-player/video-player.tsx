@@ -29,6 +29,18 @@ const VideoPlayer: FC<TVideoPlayerProps> = ({ source, onFullScreenChange }) => {
     }
   }, [isFullScreen]);
 
+  useEffect(() => {
+    if (isFullScreen) {
+      setTheater(false);
+    }
+  }, [isFullScreen]);
+
+  useEffect(() => {
+    if (isTheater) {
+      setFullScreen(false);
+    }
+  }, [isTheater]);
+
   return (
     <StyledWrap
       className={"video-root"}
