@@ -13,10 +13,10 @@ import usePlayVideo from "../../shared/lib/hooks/use-play-video";
 const VideoPlayer: FC<TVideoPlayerProps> = ({ source }) => {
   const videoRef = useRef<null | HTMLVideoElement>(null);
 
-  const { isPaused } = usePlayVideo({ ref: videoRef });
+  const { isPaused, toggleVideo } = usePlayVideo({ ref: videoRef });
 
   return (
-    <StyledWrap class={"video-root"}>
+    <StyledWrap className={"video-root"}>
       <StyledVideoOverlay>
         <StyledVideoFooter>
           <StyledTimeline></StyledTimeline>
@@ -24,13 +24,7 @@ const VideoPlayer: FC<TVideoPlayerProps> = ({ source }) => {
             <PlayButton
               isPaused={isPaused}
               onClick={() => {
-                if (!videoRef.current) return;
-
-                if (isPaused) {
-                  videoRef.current?.play();
-                } else {
-                  videoRef.current?.pause();
-                }
+                toggleVideo();
               }}
             />
           </StyledControls>
