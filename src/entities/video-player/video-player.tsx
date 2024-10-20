@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useRef } from "react";
 import { TVideoPlayerProps } from "./model/types.ts";
 import {
   StyledControls,
@@ -8,11 +8,12 @@ import {
   StyledWrap,
 } from "./model/styles.ts";
 import PlayButton from "./ui/play-button";
+import usePlayVideo from "../../shared/lib/hooks/use-play-video";
 
 const VideoPlayer: FC<TVideoPlayerProps> = ({ source }) => {
   const videoRef = useRef<null | HTMLVideoElement>(null);
 
-  const [isPaused, setPaused] = useState(true);
+  const { isPaused } = usePlayVideo({ ref: videoRef });
 
   return (
     <StyledWrap class={"video-root"}>
@@ -30,10 +31,8 @@ const VideoPlayer: FC<TVideoPlayerProps> = ({ source }) => {
                 } else {
                   videoRef.current?.pause();
                 }
-                setPaused((state) => !state);
               }}
             />
-            {/*<PlayButton isPaused={true} />*/}
           </StyledControls>
         </StyledVideoFooter>
       </StyledVideoOverlay>
